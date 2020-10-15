@@ -1,0 +1,7 @@
+test.py
+.DS_Store
+**/__pycache__/
+.idea/*
+build/
+dist/
+mongo_operator.egg-info/

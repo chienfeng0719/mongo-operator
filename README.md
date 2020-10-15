@@ -31,6 +31,12 @@ backup_operator = BackupOperator(hostname='localhost', port=27017, username='roo
 # backup all database
 backup_operator.backup(folder_path='./backup/')
 
+# backup specific collection
+backup_operator.backup(db_name='foo_bar', collection='foo_bar')
+
+# backup specific collection with query
+backup_operator.backup(db_name='foo_bar', collection='foo_bar', query_={'items': 'phone'})
+
 # restore data from backup
 backup_operator.restore(folder_path='./backup/', is_dropped=True)
 ```

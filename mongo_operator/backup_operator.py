@@ -44,7 +44,6 @@ class BackupOperator:
             '-u': self.username,
             '-p': self.password,
             '--authenticationDatabase': 'admin',
-            '--forceTableScan': ''
         }
         if db_name:
             backup_dict.update({'-d': db_name})
@@ -108,3 +107,8 @@ if __name__ == '__main__':
     # backup database
     backup_operator.backup(folder_path='../mongo_init/')
 
+    # backup specific collection
+    backup_operator.backup(db_name='foo_bar', collection='foo_bar')
+
+    # backup specific collection with query
+    backup_operator.backup(db_name='foo_bar', collection='foo_bar', query_={'items': 'phone'})

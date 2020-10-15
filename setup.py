@@ -21,7 +21,7 @@ with open('README.md', 'r') as f:
 
 setuptools.setup(
     name='mongo-operator',
-    version='0.0.1',
+    version='0.0.2',
     author='Jimmy Yeh',
     author_email='chienfeng0719@hotmail.com',
     description='A tool for backup and cleanup mongo',
