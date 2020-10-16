@@ -1,12 +1,11 @@
 # mongo-operator
-**A package for backup or cleanup mongodb.**
-
+**A package for backup / cleanup / migrate mongodb.**
 
 ## Description:
-A tool for backup and cleanup mongo.
+A tool for backup / cleanup / migrate mongo.
 
-This package can make you backup or cleanup mongo more earlier with python3.
-## initial testing data
+This package can make you backup / cleanup / migrate more earlier with python3.
+## Initial testing data
 1. download `https://github.com/chienfeng0719/mongo-operator/tree/develop/mongo_init`
 2. run command `mongo-operator -r mongo_init`
 
@@ -54,3 +53,35 @@ cleanup_operator.drop_collection(db_name='foo_bar', collection='foo_bar')
 # drop foo_bar database
 cleanup_operator.drop_db(db_name='foo_bar')
 ```
+
+### Migrate
+```python
+from mongo_operator import MigrateOperator
+
+# init object
+migrate_operator = MigrateOperator(hostname='localhost',
+                                   port=27017,
+                                   username='root',
+                                   password='root',
+                                   target_hostname='192.168.1.1',
+                                   target_port=27017,
+                                   target_username='root',
+                                   target_password='root')
+
+# import all database from target host
+migrate_operator.import_database()
+
+# import『foo_bar』database from target host
+migrate_operator.import_database(db_name='foo_bar')
+
+# export all database from to host
+migrate_operator.export_database()
+
+# export『foo_bar』database to target host
+migrate_operator.export_database(db_name='foo_bar')
+```
+
+---
+<a href="https://www.buymeacoffee.com/jimmyyyeh" target="_blank"><img src="https://cdn.buymeacoffee.com/buttons/v2/default-blue.png" alt="Buy Me A Coffee" height="40" width="175"></a>
+
+**Buy me a coffee, if you like it!**

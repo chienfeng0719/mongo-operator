@@ -44,6 +44,7 @@ class BackupOperator:
             '-u': self.username,
             '-p': self.password,
             '--authenticationDatabase': 'admin',
+            '--forceTableScan': ''
         }
         if db_name:
             backup_dict.update({'-d': db_name})
